@@ -11,14 +11,13 @@ return [
     |
     | This option determines the default session driver that is utilized for
     | incoming requests. Laravel supports a variety of storage options to
-    | persist session data. Database storage is a great default choice.
+    | persist session data. This application uses file storage.
     |
-    | Supported: "file", "cookie", "database", "memcached",
-    |            "redis", "dynamodb", "array"
+    | Supported: "file", "cookie", "memcached", "redis", "dynamodb", "array"
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'database'),
+    'driver' => env('SESSION_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,12 +63,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Connection
+    | Session Backend Connection
     |--------------------------------------------------------------------------
     |
-    | When using the "database" or "redis" session drivers, you may specify a
-    | connection that should be used to manage these sessions. This should
-    | correspond to a connection in your database configuration options.
+    | When using a connection-backed session driver, you may specify its
+    | connection here.
     |
     */
 
@@ -77,12 +75,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Table
+    | Session Backend Table
     |--------------------------------------------------------------------------
     |
-    | When using the "database" session driver, you may specify the table to
-    | be used to store sessions. Of course, a sensible default is defined
-    | for you; however, you're welcome to change this to another table.
+    | Connection-backed session drivers may use this table name.
     |
     */
 

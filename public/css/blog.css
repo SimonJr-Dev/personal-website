@@ -1,0 +1,458 @@
+/* =========================================
+   BLOG
+
+   Single-column feed, built on the tokens in
+   site.css.
+========================================= */
+
+.blog-main {
+    padding: 130px 20px 80px;
+}
+
+.blog-header {
+    width: min(100%, 600px);
+    margin: 0 auto 34px;
+}
+
+.blog-header .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 14px;
+    padding: 7px 13px;
+
+    border: 1px solid var(--line);
+    border-radius: 999px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+.blog-header .status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.blog-header h1 {
+    font-size: clamp(34px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.05;
+}
+
+.blog-header p {
+    margin-top: 12px;
+    max-width: 46ch;
+
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FEED
+========================================= */
+
+.feed {
+    width: min(100%, 600px);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.post-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    overflow: hidden;
+
+    transition: border-color .3s ease;
+}
+
+.post-card:hover {
+    border-color: rgba(255, 255, 255, .18);
+}
+
+
+/* Header row --------------------------- */
+
+.post-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+}
+
+.post-avatar {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+.post-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    min-width: 0;
+}
+
+.post-author-name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.post-time {
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+.post-draft {
+    margin-left: auto;
+    padding: 5px 10px;
+
+    border: 1px solid rgba(255, 176, 32, .45);
+    border-radius: 999px;
+
+    color: #ffc561;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+
+    text-transform: uppercase;
+}
+
+
+/* Media -------------------------------- */
+
+.post-media {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    background: var(--surface-2);
+
+    object-fit: cover;
+}
+
+
+/* Body --------------------------------- */
+
+.post-body {
+    padding: 16px;
+}
+
+.post-title {
+    margin-bottom: 8px;
+
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.3;
+}
+
+.post-title a {
+    transition: color .25s ease;
+}
+
+.post-title a:hover {
+    color: var(--accent);
+}
+
+.post-content {
+    color: #cfcfcf;
+    font-size: 15px;
+    line-height: 1.7;
+
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Collapsed by default; the toggle swaps which copy is shown. */
+.post-content[hidden] {
+    display: none;
+}
+
+.read-more {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--accent);
+    cursor: pointer;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    text-transform: uppercase;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+
+/* Actions ------------------------------ */
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 10px 12px;
+
+    border-top: 1px solid var(--line);
+    margin-top: 4px;
+    padding-top: 12px;
+}
+
+.post-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 10px;
+
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+
+    color: var(--muted);
+    cursor: pointer;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    transition: color .25s ease, background .25s ease;
+}
+
+.post-action:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, .05);
+}
+
+.post-action svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.post-action.is-on {
+    color: var(--accent);
+}
+
+.post-action.is-on svg {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+.post-action-save {
+    margin-left: auto;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    width: min(100%, 600px);
+    margin: 0 auto;
+    padding: 64px 28px;
+
+    border: 1px dashed var(--line);
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    text-align: center;
+}
+
+.empty-state svg {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 18px;
+
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.empty-state h2 {
+    margin-bottom: 8px;
+
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.feed-more {
+    width: min(100%, 600px);
+    margin: 30px auto 0;
+
+    text-align: center;
+}
+
+.load-more {
+    display: inline-block;
+
+    padding: 14px 26px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    background: var(--surface);
+    color: var(--white);
+    cursor: pointer;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    transition: .3s ease;
+}
+
+.load-more:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.load-more[disabled] {
+    opacity: .55;
+    cursor: default;
+    transform: none;
+}
+
+.feed-end {
+    color: #4d4d4d;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   SINGLE POST
+========================================= */
+
+.post-article {
+    width: min(100%, 680px);
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    transition: color .25s ease;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.post-article h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.15;
+}
+
+.post-article .post-head {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 26px;
+}
+
+.post-article .post-media {
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    margin-bottom: 26px;
+}
+
+.post-article .post-content {
+    font-size: 16px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .blog-main {
+        padding: 110px 14px 60px;
+    }
+
+    .post-card {
+        border-radius: 14px;
+    }
+
+    .post-media {
+        aspect-ratio: 1 / 1;
+    }
+
+}
